@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://ocampoad:E4JEuVUqFzs9QvK@cluster0.ga9ahxg.mongodb.net/tictactoe?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI || `mongodb+srv://${process.env.MONGODB}.mongodb.net/tictactoe?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
