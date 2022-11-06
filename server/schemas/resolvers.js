@@ -38,4 +38,6 @@ const resolvers = {
             const user = await User.findOne({ username });
         }
     }
-}
+};
+
+module.exports = resolvers;

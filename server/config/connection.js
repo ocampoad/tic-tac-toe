@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI || `mongodb+srv://${process.env.MONGODB}.mongodb.net/tictactoe?retryWrites=true&w=majority`, {
+console.log(process.env.MONGO_DB)
+
+mongoose.connect(process.env.MONGODB_URI || `mongodb+srv://${process.env.MONGO_DB}.mongodb.net/tictactoe?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
