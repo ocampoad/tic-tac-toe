@@ -14,7 +14,7 @@ const Root = styled('div')`
 	margin: 0 auto;
   background-color: #1575bf;
   color: #fff;
-  border: 6px solid #0a0a0a;
+  border: 3px solid #0a0a0a;
   border-radius: 10px;
 	
 	display: grid;
@@ -23,8 +23,8 @@ const Root = styled('div')`
 
 .box
 {
-  border: 6px solid #0a0a0a;
-  border-radius: 2px;
+  border: 3px solid #0a0a0a;
+  border-radius: 1px;
   font-family: Helvetica;
   font-weight: bold;
   font-size: 4em;
@@ -42,15 +42,15 @@ export default function UnstyledTable() {
     return (
         <Root >
             <div class="game-board">
-                <div class="box"></div>
-                <div class="box">O</div>
-                <div class="box">O</div>
-                <div class="box">O</div>
-                <div class="box">X</div>
-                <div class="box">O</div>
-                <div class="box">O</div>
-                <div class="box">X</div>
-                <div class="box">X</div>
+                <div class="box" id="box1">O</div>
+                <div class="box" id="box2">O</div>
+                <div class="box" id="box3">O</div>
+                <div class="box" id="box4">O</div>
+                <div class="box" id="box5">X</div>
+                <div class="box" id="box6">O</div>
+                <div class="box" id="box7">O</div>
+                <div class="box" id="box8">X</div>
+                <div class="box" id="box9">X</div>
             </div>
         </Root>
     );

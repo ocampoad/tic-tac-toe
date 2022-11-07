@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import Gameboard from './Gameboard'
+import UserInfoBar from './UserInfoBar'
 
 
 export default function BasicCard() {
@@ -15,10 +16,11 @@ export default function BasicCard() {
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Grid  display="flex" justifyContent="center" alignItems="center" flexDirection={'column'}>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Log In to track your wins
-        </Typography>
         <Gameboard/>
+        { false ?  <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
+          Log In to track your wins
+        </Typography> : <UserInfoBar/>}
+       
         </Grid>
         
       </CardContent> 
