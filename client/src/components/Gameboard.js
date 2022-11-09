@@ -43,28 +43,29 @@ export default function UnstyledTable() {
     let currentPlayer = player1
 
     const checkWinner = () => {
-        const box1 = document.querySelector("#box1").innerHTML
-        const box2 = document.querySelector("#box2").innerHTML
-        const box3 = document.querySelector("#box3").innerHTML
-        const box4 = document.querySelector("#box4").innerHTML
-        const box5 = document.querySelector("#box5").innerHTML
-        const box6 = document.querySelector("#box6").innerHTML
-        const box7 = document.querySelector("#box7").innerHTML
-        const box8 = document.querySelector("#box8").innerHTML
-        const box9 = document.querySelector("#box9").innerHTML
+        let box1 = document.querySelector("#box1").innerHTML
+        let box2 = document.querySelector("#box2").innerHTML
+        let box3 = document.querySelector("#box3").innerHTML
+        let box4 = document.querySelector("#box4").innerHTML
+        let box5 = document.querySelector("#box5").innerHTML
+        let box6 = document.querySelector("#box6").innerHTML
+        let box7 = document.querySelector("#box7").innerHTML
+        let box8 = document.querySelector("#box8").innerHTML
+        let box9 = document.querySelector("#box9").innerHTML
 
         let win = [
-            box1 === box2 && box2 === box3 && box3 === ("X" || "O"),
-            box4 === box5 && box5 === box6 && box6 === ("X" || "O"),
-            box7 === box8 && box8 === box9 && box9 === ("X" || "O"),
-            box1 === box4 && box4 === box7 && box7 === ("X" || "O"),
-            box2 === box5 && box5 === box8 && box8 === ("X" || "O"),
-            box3 === box6 && box6 === box9 && box9 === ("X" || "O"),
-            box1 === box5 && box5 === box9 && box9 === ("X" || "O"),
-            box3 === box5 && box5 === box7 && box7 === ("X" || "O")
+            box1 === box2 && box2 === box3 && (box3 === "X" || box3 === "O"),
+            box4 === box5 && box5 === box6 && (box6 === "X" || box6 === "O"),
+            box7 === box8 && box8 === box9 && (box9 === "X" || box9 === "O"),
+            box1 === box4 && box4 === box7 && (box7 === "X" || box7 === "O"),
+            box2 === box5 && box5 === box8 && (box8 === "X" || box8 === "O"),
+            box3 === box6 && box6 === box9 && (box9 === "X" || box9 === "O"),
+            box1 === box5 && box5 === box9 && (box9 === "X" || box9 === "O"),
+            box3 === box5 && box5 === box7 && (box7 === "X" || box7 === "O")
         ]
 
         if (win.some(x => x === true)) {
+            console.log(win)
             return true;
         }
 
