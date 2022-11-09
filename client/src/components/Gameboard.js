@@ -38,19 +38,38 @@ const Root = styled('div')`
 
 export default function UnstyledTable() {
 
+    let player1 = "X"
+    let player2 = "O"
+    let currentPlayer = player1
+
+    const checkWinner = () => {
+        return false;
+    }
+
+    const Click = (e, player) => {
+        e.target.textContent = player
+        if (checkWinner()) {
+            alert("win!")
+        }
+        if( player === player1) {
+            currentPlayer = player2
+        } else if ( player === player2) {
+            currentPlayer = player1
+        }
+    };
 
     return (
         <Root >
             <div class="game-board">
-                <div class="box" id="box1">O</div>
-                <div class="box" id="box2">O</div>
-                <div class="box" id="box3">O</div>
-                <div class="box" id="box4">O</div>
-                <div class="box" id="box5">X</div>
-                <div class="box" id="box6">O</div>
-                <div class="box" id="box7">O</div>
-                <div class="box" id="box8">X</div>
-                <div class="box" id="box9">X</div>
+                <div class="box" id="box1" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box2" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box3" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box4" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box5" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box6" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box7" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box8" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box9" onClick={e => Click(e, currentPlayer)}></div>
             </div>
         </Root>
     );
