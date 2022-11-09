@@ -43,6 +43,40 @@ export default function UnstyledTable() {
     let currentPlayer = player1
 
     const checkWinner = () => {
+        const box1 = document.querySelector("#box1").innerHTML
+        const box2 = document.querySelector("#box2").innerHTML
+        const box3 = document.querySelector("#box3").innerHTML
+        const box4 = document.querySelector("#box4").innerHTML
+        const box5 = document.querySelector("#box5").innerHTML
+        const box6 = document.querySelector("#box6").innerHTML
+        const box7 = document.querySelector("#box7").innerHTML
+        const box8 = document.querySelector("#box8").innerHTML
+        const box9 = document.querySelector("#box9").innerHTML
+
+        console.log(typeof(box9))
+        // box4 === box5 && box5 === box6,
+        // box7 === box8 && box8 === box9,
+        // box1 === box4 && box4 === box7,
+        // box2 === box5 && box5 === box8,
+        // box3 === box6 && box6 === box9,
+        // box1 === box5 && box5 === box9,
+        // box3 === box5 && box5 === box7
+
+        let win = [
+            box1 === box2 && box2 === box3,
+            box4 === box5 && box5 === box6,
+            box7 === box8 && box8 === box9,
+            box1 === box4 && box4 === box7,
+            box2 === box5 && box5 === box8,
+            box3 === box6 && box6 === box9,
+            box1 === box5 && box5 === box9,
+            box3 === box5 && box5 === box7
+        ]
+
+        if (win.some(x => x === true)) {
+            console.log(win)
+        }
+
         return false;
     }
 
@@ -51,9 +85,9 @@ export default function UnstyledTable() {
         if (checkWinner()) {
             alert("win!")
         }
-        if( player === player1) {
+        if (player === player1) {
             currentPlayer = player2
-        } else if ( player === player2) {
+        } else if (player === player2) {
             currentPlayer = player1
         }
     };
