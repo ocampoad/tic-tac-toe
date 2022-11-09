@@ -53,37 +53,28 @@ export default function UnstyledTable() {
         const box8 = document.querySelector("#box8").innerHTML
         const box9 = document.querySelector("#box9").innerHTML
 
-        console.log(typeof(box9))
-        // box4 === box5 && box5 === box6,
-        // box7 === box8 && box8 === box9,
-        // box1 === box4 && box4 === box7,
-        // box2 === box5 && box5 === box8,
-        // box3 === box6 && box6 === box9,
-        // box1 === box5 && box5 === box9,
-        // box3 === box5 && box5 === box7
-
         let win = [
-            box1 === box2 && box2 === box3,
-            box4 === box5 && box5 === box6,
-            box7 === box8 && box8 === box9,
-            box1 === box4 && box4 === box7,
-            box2 === box5 && box5 === box8,
-            box3 === box6 && box6 === box9,
-            box1 === box5 && box5 === box9,
-            box3 === box5 && box5 === box7
+            box1 === box2 && box2 === box3 && box3 === ("X" || "O"),
+            box4 === box5 && box5 === box6 && box6 === ("X" || "O"),
+            box7 === box8 && box8 === box9 && box9 === ("X" || "O"),
+            box1 === box4 && box4 === box7 && box7 === ("X" || "O"),
+            box2 === box5 && box5 === box8 && box8 === ("X" || "O"),
+            box3 === box6 && box6 === box9 && box9 === ("X" || "O"),
+            box1 === box5 && box5 === box9 && box9 === ("X" || "O"),
+            box3 === box5 && box5 === box7 && box7 === ("X" || "O")
         ]
 
         if (win.some(x => x === true)) {
-            console.log(win)
+            return true;
         }
 
         return false;
     }
 
-    const Click = (e, player) => {
+    const playerClick = (e, player) => {
         e.target.textContent = player
         if (checkWinner()) {
-            alert("win!")
+            alert(`${player} wins`)
         }
         if (player === player1) {
             currentPlayer = player2
@@ -95,15 +86,15 @@ export default function UnstyledTable() {
     return (
         <Root >
             <div class="game-board">
-                <div class="box" id="box1" onClick={e => Click(e, currentPlayer)}></div>
-                <div class="box" id="box2" onClick={e => Click(e, currentPlayer)}></div>
-                <div class="box" id="box3" onClick={e => Click(e, currentPlayer)}></div>
-                <div class="box" id="box4" onClick={e => Click(e, currentPlayer)}></div>
-                <div class="box" id="box5" onClick={e => Click(e, currentPlayer)}></div>
-                <div class="box" id="box6" onClick={e => Click(e, currentPlayer)}></div>
-                <div class="box" id="box7" onClick={e => Click(e, currentPlayer)}></div>
-                <div class="box" id="box8" onClick={e => Click(e, currentPlayer)}></div>
-                <div class="box" id="box9" onClick={e => Click(e, currentPlayer)}></div>
+                <div class="box" id="box1" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box2" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box3" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box4" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box5" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box6" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box7" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box8" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box9" onClick={e =>playerClick(e, currentPlayer)}></div>
             </div>
         </Root>
     );
