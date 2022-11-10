@@ -65,17 +65,28 @@ export default function UnstyledTable() {
         ]
 
         if (win.some(x => x === true)) {
-            console.log(win)
             return true;
         }
 
         return false;
+    };
+
+    const clearGameBoard = () => {
+        document.querySelector("#box1").innerHTML = ""
+        document.querySelector("#box2").innerHTML = ""
+        document.querySelector("#box3").innerHTML = ""
+        document.querySelector("#box4").innerHTML = ""
+        document.querySelector("#box5").innerHTML = ""
+        document.querySelector("#box6").innerHTML = ""
+        document.querySelector("#box7").innerHTML = ""
+        document.querySelector("#box8").innerHTML = ""
+        document.querySelector("#box9").innerHTML = ""
     }
 
     const playerClick = (e, player) => {
         e.target.textContent = player
         if (checkWinner()) {
-            alert(`${player} wins`)
+            setTimeout(clearGameBoard, 5000);
         }
         if (player === player1) {
             currentPlayer = player2
