@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { styled } from '@mui/system';
 import TablePaginationUnstyled, {
     tablePaginationUnstyledClasses as classes,
@@ -42,6 +43,16 @@ export default function UnstyledTable() {
     let player2 = "O"
     let currentPlayer = player1
 
+    const [disableClick1, setDisableClick1] = useState(true)
+    const [disableClick2, setDisableClick2] = useState(true)
+    const [disableClick3, setDisableClick3] = useState(true)
+    const [disableClick4, setDisableClick4] = useState(true)
+    const [disableClick5, setDisableClick5] = useState(true)
+    const [disableClick6, setDisableClick6] = useState(true)
+    const [disableClick7, setDisableClick7] = useState(true)
+    const [disableClick8, setDisableClick8] = useState(true)
+    const [disableClick9, setDisableClick9] = useState(true)
+
     const checkWinner = () => {
         let box1 = document.querySelector("#box1").innerHTML
         let box2 = document.querySelector("#box2").innerHTML
@@ -83,30 +94,32 @@ export default function UnstyledTable() {
         document.querySelector("#box9").innerHTML = ""
     }
 
-    const playerClick = (e, player) => {
+    const playerClick = async (e, player) => {
         e.target.textContent = player
+        
         if (checkWinner()) {
             setTimeout(clearGameBoard, 5000);
         }
         if (player === player1) {
-            currentPlayer = player2
+             currentPlayer = player2
         } else if (player === player2) {
             currentPlayer = player1
         }
+        
     };
 
     return (
         <Root >
             <div class="game-board">
-                <div class="box" id="box1" onClick={e =>playerClick(e, currentPlayer)}></div>
-                <div class="box" id="box2" onClick={e =>playerClick(e, currentPlayer)}></div>
-                <div class="box" id="box3" onClick={e =>playerClick(e, currentPlayer)}></div>
-                <div class="box" id="box4" onClick={e =>playerClick(e, currentPlayer)}></div>
-                <div class="box" id="box5" onClick={e =>playerClick(e, currentPlayer)}></div>
-                <div class="box" id="box6" onClick={e =>playerClick(e, currentPlayer)}></div>
-                <div class="box" id="box7" onClick={e =>playerClick(e, currentPlayer)}></div>
-                <div class="box" id="box8" onClick={e =>playerClick(e, currentPlayer)}></div>
-                <div class="box" id="box9" onClick={e =>playerClick(e, currentPlayer)}></div>
+                <div class="box" id="box1" onClick={disableClick1 ? e => {playerClick(e, currentPlayer); setDisableClick1(!disableClick1)} : () => {}}></div>
+                <div class="box" id="box2" onClick={disableClick2 ? e => {playerClick(e, currentPlayer); setDisableClick2(!disableClick2)} : () => {}}></div>
+                <div class="box" id="box3" onClick={disableClick3 ? e => {playerClick(e, currentPlayer); setDisableClick3(!disableClick3)} : () => {}}></div>
+                <div class="box" id="box4" onClick={disableClick4 ? e => {playerClick(e, currentPlayer); setDisableClick4(!disableClick4)} : () => {}}></div>
+                <div class="box" id="box5" onClick={disableClick5 ? e => {playerClick(e, currentPlayer); setDisableClick5(!disableClick5)} : () => {}}></div>
+                <div class="box" id="box6" onClick={disableClick6 ? e => {playerClick(e, currentPlayer); setDisableClick6(!disableClick6)} : () => {}}></div>
+                <div class="box" id="box7" onClick={disableClick7 ? e => {playerClick(e, currentPlayer); setDisableClick7(!disableClick7)} : () => {}}></div>
+                <div class="box" id="box8" onClick={disableClick8 ? e => {playerClick(e, currentPlayer); setDisableClick8(!disableClick8)} : () => {}}></div>
+                <div class="box" id="box9" onClick={disableClick9 ? e => {playerClick(e, currentPlayer); setDisableClick9(!disableClick9)} : () => {}}></div>
             </div>
         </Root>
     );
